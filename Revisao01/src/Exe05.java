@@ -18,9 +18,14 @@ public class Exe05 extends HttpServlet {
 		String title = "Exercicio 05";
 		StringBuilder script = new StringBuilder();
 		script.append("  $(document).ready(function() {");
-		script.append("	    $(\".addInput\").click(function(e){");
+		script.append("	    $(\".addInput1\").click(function(e){");
 		script.append("	        e.preventDefault();");
-		script.append("	        $(this).parent().append('<div><input type=\"number\" class=\"form-control\" name=\"n[]\"/><a href=\"#\" class=\"remove_field\">Remove</a></div>');");
+		script.append("	        $(this).parent().append('<div><input type=\"number\" class=\"form-control\" name=\"n1[]\"/><a href=\"#\" class=\"remove_field\">Remove</a></div>');");
+		script.append("	    });");
+		script.append("	    ");
+		script.append("	    $(\".addInput2\").click(function(e){");
+		script.append("	        e.preventDefault();");
+		script.append("	        $(this).parent().append('<div><input type=\"number\" class=\"form-control\" name=\"n2[]\"/><a href=\"#\" class=\"remove_field\">Remove</a></div>');");
 		script.append("	    });");
 		script.append("	    ");
 		script.append("	    $(\".form-group\").on(\"click\",\".remove_field\", function(e){");

@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Exe01")
 public class Exe01 extends HttpServlet {
+	private String enunciado = "01) Utilizando vetor, faça um programa em Java que leia um conjunto de números. Exiba este conjunto acompanhado <BR />do seu elemento simétrico em relação a sua posição no conjunto. Veja o exemplo: <BR />Entrada: 5, 7, 9, 2 <BR />Saída: <BR />5 - 2 <BR />7 - 9 <BR />9 - 7 <BR />2 - 5";
+	private String title = "Exercicio 01";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String enunciado = "01) Utilizando vetor, faça um programa em Java que leia um conjunto de números. Exiba este conjunto acompanhado do seu elemento simétrico em relação a sua posição no conjunto.";
-		String title = "Exercicio 01";
 		StringBuilder script = new StringBuilder();
 		script.append("  $(document).ready(function() {");
 		script.append("	    var max_fields      = 10;");
@@ -33,6 +33,7 @@ public class Exe01 extends HttpServlet {
 		script.append("	        x--;");
 		script.append("	    })");
 		script.append("	});");
+		
 		StringBuilder body = new StringBuilder();
 		body.append("<form method=\"POST\">");
 		body.append("<div class=\"multiple-input\">");
@@ -42,18 +43,15 @@ public class Exe01 extends HttpServlet {
 		body.append("<button type=\"submit\" class=\"btn btn-primary\">Enviar</button>");
 		body.append("</form>");
 		out.println(HelperHtml.html5(title, enunciado, script.toString(), body.toString()));
-		
 		out.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String numero[] = request.getParameterValues("n[]");
 		int a = numero.length;
 		int j = numero.length - 1;
+		
 		PrintWriter out = response.getWriter();
-		String enunciado = "01) Utilizando vetor, faça um programa em Java que leia um conjunto de números. Exiba este conjunto acompanhado do seu elemento simétrico em relação a sua posição no conjunto.";
-		String title = "Exercicio 01";
 		String script = "";
 		StringBuilder body = new StringBuilder();
 		body.append("<div class=\"jumbotron\">");
@@ -62,6 +60,7 @@ public class Exe01 extends HttpServlet {
 			body.append("<div>").append(numero[i]).append("-").append(numero[j]).append("</div>");
 			j--;
 		} 
+		
 		body.append("</div>");
 		out.println(HelperHtml.html5(title, enunciado, script, body.toString()));
 		out.close();

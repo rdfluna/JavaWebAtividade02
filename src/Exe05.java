@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Exe05")
 public class Exe05 extends HttpServlet {
+	private String enunciado = "05) Utilizando vetor, faça um programa em Java que leia dois vetores (podem ter o tamanho diferente) já ordenados de <BR />forma crescente. Crie um outro vetor para armazenar os dois conjuntos unidos, sendo que os números devem <BR />permanecer ordenados. Finalmente, exiba este vetor resultante.";
+	private String title = "Exercicio 05";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String enunciado = "05) Utilizando vetor, faça um programa em Java que leia dois vetores (podem ter o tamanho diferente) já ordenados de <BR />forma crescente. Crie um outro vetor para armazenar os dois conjuntos unidos, sendo que os números devem <BR />permanecer ordenados. Finalmente, exiba este vetor resultante.";
-		String title = "Exercicio 05";
 		StringBuilder script = new StringBuilder();
 		script.append("  $(document).ready(function() {");
 		script.append("	    $(\".addInput1\").click(function(e){");
@@ -33,6 +34,7 @@ public class Exe05 extends HttpServlet {
 		script.append("	        x--;");
 		script.append("	    })");
 		script.append("	});");
+		
 		StringBuilder body = new StringBuilder();
 		body.append("<form method=\"POST\">");
 		body.append("  <div class=\"form-group\">");
@@ -47,8 +49,7 @@ public class Exe05 extends HttpServlet {
 		body.append("  </div>");
 		body.append("<button type=\"submit\" class=\"btn btn-primary\">Enviar</button>");
 		body.append("</form>");
-		out.println(HelperHtml.html5(title, enunciado, script.toString(), body.toString()));
-		
+		out.println(HelperHtml.html5(title, enunciado, script.toString(), body.toString()));		
 		out.close();
 	}
 
@@ -69,8 +70,6 @@ public class Exe05 extends HttpServlet {
 		Arrays.sort(resultado);
 
 		PrintWriter out = response.getWriter();
-		String enunciado = "05) Utilizando vetor, faça um programa em Java que leia dois vetores (podem ter o tamanho diferente) já ordenados de <BR />forma crescente. Crie um outro vetor para armazenar os dois conjuntos unidos, sendo que os números devem <BR />permanecer ordenados. Finalmente, exiba este vetor resultante.";
-		String title = "Exercicio 05";
 		String script = "";
 		StringBuilder body = new StringBuilder();
 		body.append("<div class=\"jumbotron\">");
@@ -79,8 +78,8 @@ public class Exe05 extends HttpServlet {
 		for (int i = 0; i < vet3; i++) {
 			body.append("<div>").append(resultado[i]).append("</div>");
 		} 
+		
 		body.append("</div>");
-
 		out.println(HelperHtml.html5(title, enunciado, script, body.toString()));
 		out.close();
 	}

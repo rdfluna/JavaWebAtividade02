@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Exe07")
 public class Exe07 extends HttpServlet {
+	private String enunciado = "07) Criar um programa que leia um vetor de 10 elementos inteiros. Apresente na tela apenas os números PARES.";
+	private String title = "Exercicio 07";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String enunciado = "07) Criar um programa que leia um vetor de 10 elementos inteiros. Apresente na tela apenas os números PARES.";
-		String title = "Exercicio 07";
 		String script = "";
 		StringBuilder body = new StringBuilder();
 		body.append("<form method=\"POST\">");
@@ -62,16 +62,13 @@ public class Exe07 extends HttpServlet {
 		body.append("  <button type=\"submit\" class=\"btn btn-primary\">Enviar</button>");
 		body.append("</form>");
 		out.println(HelperHtml.html5(title, enunciado, script, body.toString()));
-		
 		out.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String num[] = request.getParameterValues("n[]");
+		
 		PrintWriter out = response.getWriter();
-
-		String enunciado = "07) Criar um programa que leia um vetor de 10 elementos inteiros. Apresente na tela apenas os números PARES.";
-		String title = "Exercicio 07";
 		String script = "";
 		StringBuilder body = new StringBuilder();
 		body.append("<div class=\"jumbotron\">");

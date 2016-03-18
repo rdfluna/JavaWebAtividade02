@@ -11,11 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Exe04")
 public class Exe04 extends HttpServlet {
-	
+	private String enunciado = "04) A importância de 780.000,00 será dividida entre os três primeiros colocados de um concurso, em partes <BR />diretamente proporcionais aos pontos conseguidos por eles. Construa um programa que solicite o número de pontos <BR />dos três primeiros colocados e imprima a importância que caberá a cada um.";
+	private String title = "Exercicio 04";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String enunciado = "04) A importância de 780.000,00 será dividida entre os três primeiros colocados de um concurso, em partes <BR />diretamente proporcionais aos pontos conseguidos por eles. Construa um programa que solicite o número de pontos <BR />dos três primeiros colocados e imprima a importância que caberá a cada um.";
-		String title = "Exercicio 04";
 		String script = "";
 		StringBuilder body = new StringBuilder();
 		
@@ -32,7 +31,6 @@ public class Exe04 extends HttpServlet {
 		body.append("</form>");
 		
 		out.println(HelperHtml.html5(title, enunciado, script, body.toString()));
-		
 		out.close();
 	}
 
@@ -54,15 +52,15 @@ public class Exe04 extends HttpServlet {
 		tot = p + s + t;
 
 		PrintWriter out = response.getWriter();
-		String enunciado = "04) A importância de 780.000,00 será dividida entre os três primeiros colocados de um concurso, em partes <BR />diretamente proporcionais aos pontos conseguidos por eles. Construa um programa que solicite o número de pontos <BR />dos três primeiros colocados e imprima a importância que caberá a cada um.";
-		String title = "Exercicio 04";
 		String script = "";
 		StringBuilder body = new StringBuilder();
 		body.append("<div class=\"jumbotron\">");
+		
 		body.append("  <p>A importância do primeiro colocado foi de ").append(p).append("</p>");
 		body.append("  <p>A importância do segundo colocado foi de ").append(s).append("</p>");
 		body.append("  <p>A importância do terceiro colocado foi de ").append(t).append("</p>");
 		body.append("  <p>Total ").append(tot).append("</p>");
+		
 		body.append("</div>");
 		out.println(HelperHtml.html5(title, enunciado, script, body.toString()));
 		out.close();

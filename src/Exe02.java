@@ -11,14 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Exe02")
 public class Exe02 extends HttpServlet {
-	
+	private String enunciado = "02) Dizemos que um inteiro positivo N é perfeito se for igual à soma de seus divisores positivos diferentes de N, por <BR />exemplo: 6 é perfeito, pois 1 + 2 + 3 = 6. <BR />Criar um programa que dado um inteiro positivo N, verificar se N é perfeito.";
+	private String title = "Exercicio 02";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String enunciado = "02) Dizemos que um inteiro positivo N é perfeito se for igual à soma de seus divisores positivos diferentes de N, por <BR />exemplo: 6 é perfeito, pois 1 + 2 + 3 = 6. <BR />Criar um programa que dado um inteiro positivo N, verificar se N é perfeito.";
-		String title = "Exercicio 02";
 		String script = "";
-		StringBuilder body = new StringBuilder();
 		
+		StringBuilder body = new StringBuilder();
 		body.append("<form method=\"POST\">");
 		body.append("  <div class=\"form-group\">");
 		body.append("    <label for=\"n\">Digite um número inteiro positivo</label>");
@@ -26,15 +25,12 @@ public class Exe02 extends HttpServlet {
 		body.append("  </div>");		
 		body.append("  <button type=\"submit\" class=\"btn btn-primary\">Enviar</button>");
 		body.append("</form>");
-		
 		out.println(HelperHtml.html5(title, enunciado, script, body.toString()));
-		
 		out.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String n = request.getParameter("n");
-		int a = Integer.parseInt(n);
+		int a = Integer.parseInt(request.getParameter("n"));
 		int b = 0;
 
 		for(int i = a - 1; i > 0; i--) {
@@ -43,17 +39,17 @@ public class Exe02 extends HttpServlet {
 		}
 
 		PrintWriter out = response.getWriter();
-		String enunciado = "02) Dizemos que um inteiro positivo N é perfeito se for igual à soma de seus divisores positivos diferentes de N, por <BR />exemplo: 6 é perfeito, pois 1 + 2 + 3 = 6. <BR />Criar um programa que dado um inteiro positivo N, verificar se N é perfeito.";
-		String title = "Exercicio 02";
 		String script = "";
 		StringBuilder body = new StringBuilder();
 		body.append("<div class=\"jumbotron\">");
+		
 		if(a == b) {
 			body.append("<p>Número é perfeito!</p>");
 		}
 		else {
 			body.append("<p>Número NÃO é perfeito!</p>");
 		}
+		
 		body.append("</div>");
 		out.println(HelperHtml.html5(title, enunciado, script, body.toString()));
 		out.close();
